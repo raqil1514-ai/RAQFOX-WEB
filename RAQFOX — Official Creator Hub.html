@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAQFOX — Official Creator Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0b09;--sf:#17130f;--sf2:#221b14;--tx:#f4ece4;--mu:#a99a8b;--or:#ff7a00;--or2:#ffb347;--ln:#3a2c1e;--on:#0d0b09;
+--hd:"Chakra Petch",Impact,sans-serif;--bd:"Barlow",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff6ec;--sf:#ffffff;--sf2:#ffe9d2;--tx:#241709;--mu:#7a6552;--or:#e86a00;--or2:#c24f00;--ln:#f0cfa8;--on:#fff}}
+:root[data-theme="light"]{--bg:#fff6ec;--sf:#ffffff;--sf2:#ffe9d2;--tx:#241709;--mu:#7a6552;--or:#e86a00;--or2:#c24f00;--ln:#f0cfa8;--on:#fff}
+:root[data-theme="dark"]{--bg:#0d0b09;--sf:#17130f;--sf2:#221b14;--tx:#f4ece4;--mu:#a99a8b;--or:#ff7a00;--or2:#ffb347;--ln:#3a2c1e;--on:#0d0b09}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 var(--bd)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--or);display:flex;align-items:center;gap:14px;padding:10px 18px;flex-wrap:wrap}
+.logo{font:700 22px var(--hd);letter-spacing:.04em;text-decoration:none}.logo b{color:var(--or)}
+nav{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--mu);font-weight:600;font-size:14px}nav a:hover{color:var(--or)}
+#theme{background:var(--sf2);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:6px 12px;font:600 13px var(--bd);cursor:pointer}
+main{max-width:1000px;margin:0 auto;padding:0 18px 60px}
+.hero{padding:56px 0 40px;display:grid;gap:18px}
+.hero h1{font:700 clamp(48px,14vw,112px)/.9 var(--hd);margin:0;letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 span{color:var(--or);display:block}
+.hero p{max-width:46ch;color:var(--mu);font-size:18px;margin:0}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:6px;font:700 15px var(--hd);text-decoration:none;border:2px solid var(--or);cursor:pointer;background:transparent;color:var(--tx)}
+.btn.p{background:var(--or);color:var(--on)}.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--or2)}
+section{padding:36px 0;border-top:1px solid var(--ln)}
+h2{font:700 32px var(--hd);margin:0 0 6px;text-transform:uppercase}
+.sub{color:var(--mu);margin:0 0 20px}
+.game{display:grid;gap:18px;grid-template-columns:1fr;align-items:start}
+@media(min-width:760px){.game{grid-template-columns:1fr 1fr}}
+.panel{background:var(--sf);border:2px solid var(--ln);border-radius:10px;padding:16px}
+.stat{display:flex;justify-content:space-between;font:700 18px var(--hd);margin-bottom:12px}
+.stat em{font-style:normal;color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hole{aspect-ratio:1;border-radius:10px;border:2px solid var(--ln);background:var(--sf2);font-size:clamp(34px,9vw,52px);cursor:pointer;color:var(--tx)}
+.hole.up{background:var(--or);border-color:var(--or2)}
+.hole.bad{background:#7a1f1f}
+#msg{min-height:24px;color:var(--mu);margin:12px 0 0;font-size:14px}
+ol{list-style:none;margin:0;padding:0}
+.lb li{display:flex;align-items:center;gap:12px;padding:10px 6px;border-bottom:1px solid var(--ln)}
+.lb li:last-child{border:0}
+.rk{width:30px;font:700 18px var(--hd);color:var(--mu)}
+.nm{flex:1;font-weight:600}.pt{font:700 18px var(--hd);color:var(--or)}
+.lb li:nth-child(1) .rk{color:#ffc933}
+.crown{font-size:20px}
+.ach{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.a{background:var(--sf);border:2px solid var(--ln);border-radius:10px;padding:14px;opacity:.5}
+.a.on{opacity:1;border-color:var(--or)}
+.a h3{margin:6px 0 2px;font:700 17px var(--hd)}.a p{margin:0;color:var(--mu);font-size:14px}.a i{font-style:normal;font-size:28px}
+.ev{display:grid;gap:12px}
+.e{display:grid;grid-template-columns:76px 1fr;gap:14px;background:var(--sf);border-left:6px solid var(--or);border-radius:8px;padding:14px}
+.d{text-align:center;font:700 30px/1 var(--hd);color:var(--or)}.d small{display:block;font-size:13px;color:var(--mu)}
+.e h3{margin:0;font:700 19px var(--hd)}.e p{margin:2px 0 0;color:var(--mu);font-size:14px}
+.join{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.join{grid-template-columns:1fr 1fr}}
+.card{display:block;text-decoration:none;background:var(--sf);border:2px solid var(--ln);border-radius:10px;padding:20px}
+.card:hover{border-color:var(--or)}.card h3{margin:0 0 4px;font:700 22px var(--hd)}.card p{margin:0 0 12px;color:var(--mu)}
+.card span{color:var(--or);font-weight:700}
+footer{text-align:center;color:var(--mu);padding:24px;border-top:2px solid var(--or);font-size:14px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="#top">RAQ<b>FOX</b></a>
+<nav><a href="#game">Mini Games</a><a href="#lb">Leaderboard</a><a href="#ach">Achievements</a><a href="#event">Event</a><a href="#join">Komunitas</a></nav>
+<button id="theme" type="button" aria-label="Ganti mode tampilan">Mode: Gelap</button>
+</header>
+<main id="top">
+<div class="hero">
+<h1>RaqFox<span>Creator Hub</span></h1>
+<p>Markas resmi RaqFox. Main mini game, rebut mahkota di leaderboard, ikut turnamen, dan gabung komunitas.</p>
+<div class="btns"><a class="btn p" href="#game">Main sekarang</a><a class="btn" href="https://www.youtube.com/@RaqFox-6" target="_blank" rel="noopener">Video terbaru di YouTube</a></div>
+</div>
+
+<section id="game">
+<h2>Mini Games</h2>
+<p class="sub">Tangkap Rubah: ketuk 🦊 secepat mungkin dalam 20 detik. Jangan ketuk 💣.</p>
+<div class="game">
+<div class="panel">
+<div class="stat"><span>Skor <em id="sc">0</em></span><span>Waktu <em id="tm">20</em></span></div>
+<div class="grid" id="grid"></div>
+<p id="msg" aria-live="polite">Tekan Mulai untuk bermain.</p>
+<div class="btns" style="margin-top:12px"><button class="btn p" id="start" type="button">Mulai</button></div>
+</div>
+<div class="panel"><h3 style="margin:0 0 8px;font:700 20px var(--hd)">Cara main</h3>
+<p style="margin:0 0 8px;color:var(--mu)">+1 poin untuk tiap rubah. Kena bom, skor berkurang 2. Skor tertinggimu otomatis masuk leaderboard di perangkat ini.</p>
+<label for="pn" style="font-weight:600">Nama pemain</label><br>
+<input id="pn" maxlength="14" placeholder="Nama kamu" style="margin-top:6px;width:100%;padding:10px;border-radius:6px;border:2px solid var(--ln);background:var(--sf2);color:var(--tx);font:inherit">
+</div>
+</div>
+</section>
+
+<section id="lb">
+<h2>Leaderboard</h2>
+<p class="sub">Mahkota: 👑 Raja, 🥈 Pangeran, 🥉 Ksatria. Skor terbaik per pemain.</p>
+<div class="panel"><ol class="lb" id="lbl"></ol></div>
+</section>
+
+<section id="ach">
+<h2>Achievements</h2>
+<p class="sub">Buka lencana dengan bermain. Tersimpan di perangkatmu.</p>
+<div class="ach" id="al"></div>
+</section>
+
+<section id="event">
+<h2>Event &amp; Tournament</h2>
+<div class="panel" style="text-align:center;padding:36px 16px"><p style="margin:0;font:700 22px var(--hd);color:var(--or)">[BELOM ADA PENGUMUMAN TURNAMEN]</p></div>
+</section>
+
+<section id="join">
+<h2>Gabung Komunitas</h2>
+<p class="sub">Info event, pengumuman video, dan obrolan ada di sini.</p>
+<div class="join">
+<a class="card" href="https://whatsapp.com/channel/0029Vb81MedADTO61mgjeK1I" target="_blank" rel="noopener"><h3>WhatsApp Community</h3><p>Pengumuman event dan update langsung dari RaqFox.</p><span>Gabung channel</span></a>
+<a class="card" href="https://www.youtube.com/@RaqFox-6" target="_blank" rel="noopener"><h3>YouTube @RaqFox-6</h3><p>Video baru dan highlight turnamen.</p><span>Tonton video terbaru</span></a>
+</div>
+</section>
+</main>
+<footer>© 2026 RaqFox. Official Creator Hub.</footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var root=document.documentElement,tb=$('theme');
+function sget(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':!matchMedia('(prefers-color-scheme: light)').matches}
+function lab(){tb.textContent='Mode: '+(isDark()?'Gelap':'Terang')}
+var st=sget('rf_theme',null);if(st)root.setAttribute('data-theme',st);lab();
+tb.onclick=function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);sset('rf_theme',n);lab()};
+
+var seed=[{n:'Bang Raq',s:24},{n:'Kitsune',s:19},{n:'OrangeStorm',s:16},{n:'Nyala',s:12},{n:'Ekor Api',s:9}];
+var board=sget('rf_board',seed);
+var crowns=['👑','🥈','🥉'];
+function drawBoard(){
+board.sort(function(a,b){return b.s-a.s});board=board.slice(0,8);
+$('lbl').innerHTML=board.map(function(p,i){return '<li><span class="rk">'+(i+1)+'</span><span class="crown">'+(crowns[i]||'')+'</span><span class="nm"></span><span class="pt">'+p.s+'</span></li>'}).join('');
+var names=$('lbl').querySelectorAll('.nm');board.forEach(function(p,i){names[i].textContent=p.n});
+}
+drawBoard();
+
+var defs=[
+{id:'first',i:'🦊',t:'Rubah Pertama',d:'Selesaikan 1 permainan.',f:function(c){return c.games>=1}},
+{id:'s10',i:'🔥',t:'Mulai Panas',d:'Capai skor 10.',f:function(c){return c.best>=10}},
+{id:'s20',i:'⚡',t:'Kilat Oranye',d:'Capai skor 20.',f:function(c){return c.best>=20}},
+{id:'g5',i:'🎮',t:'Pemain Setia',d:'Main 5 kali.',f:function(c){return c.games>=5}},
+{id:'bomb',i:'💥',t:'Salah Ketuk',d:'Kena bom sekali.',f:function(c){return c.bombs>=1}},
+{id:'king',i:'👑',t:'Raja Hub',d:'Rebut posisi 1 leaderboard.',f:function(c){return c.king}}];
+var meta=sget('rf_meta',{games:0,best:0,bombs:0,king:false});
+function drawAch(){$('al').innerHTML=defs.map(function(a){var on=a.f(meta);return '<div class="a'+(on?' on':'')+'"><i>'+a.i+'</i><h3>'+a.t+'</h3><p>'+a.d+(on?' Terbuka!':'')+'</p></div>'}).join('')}
+drawAch();
+
+var grid=$('grid'),holes=[],score=0,left=20,run=false,tick,pop,cur=-1;
+for(var i=0;i<9;i++){var b=document.createElement('button');b.type='button';b.className='hole';b.setAttribute('aria-label','Kotak '+(i+1));(function(ix){b.onclick=function(){hit(ix)}})(i);grid.appendChild(b);holes.push(b)}
+var kind='';
+function clear(){holes.forEach(function(h){h.textContent='';h.className='hole'});cur=-1}
+function show(){clear();cur=Math.floor(Math.random()*9);kind=Math.random()<.2?'bad':'fox';holes[cur].textContent=kind==='fox'?'🦊':'💣';holes[cur].className='hole up'+(kind==='bad'?' bad':'')}
+function hit(ix){
+if(!run||ix!==cur)return;
+if(kind==='fox'){score++}else{score=Math.max(0,score-2);meta.bombs++}
+$('sc').textContent=score;show()}
+function end(){
+run=false;clearInterval(tick);clearInterval(pop);clear();$('start').disabled=false;$('start').textContent='Main lagi';
+var name=($('pn').value||'').trim()||'Pemain';
+var ex=board.filter(function(p){return p.n===name})[0];
+if(ex){if(score>ex.s)ex.s=score}else{board.push({n:name,s:score})}
+board.sort(function(a,b){return b.s-a.s});
+meta.games++;meta.best=Math.max(meta.best,score);
+if(board[0].n===name&&board[0].s===score&&score>0)meta.king=true;
+sset('rf_board',board);sset('rf_meta',meta);drawBoard();drawAch();
+$('msg').textContent='Selesai! Skor akhir '+score+'. Cek leaderboard di bawah.'}
+$('start').onclick=function(){
+score=0;left=20;run=true;$('sc').textContent=0;$('tm').textContent=20;$('start').disabled=true;$('msg').textContent='Ketuk rubahnya!';show();
+pop=setInterval(show,750);
+tick=setInterval(function(){left--;$('tm').textContent=left;if(left<=0)end()},1000)};
+})();
+</script>
+</body>
+</html>
